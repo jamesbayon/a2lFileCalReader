@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A2L File Reader</title>
+	<link rel="stylesheet" href="./resources/css/styles.css">
+</head>
+<body>
+    <h1>A2L File Reader</h1>
+    <div>
+        <input type="file" id="fileInput" onchange="updateSelectedFileText()" />
+        <label for="fileInput" class="custom-file-upload">Choose File</label>
+        <button class="read-file-button" onclick="readFile()">Read File</button>
+        <div id="selectedFileText" class="selected-file-text"></div>
+    </div>
+
+    <h2>Callibration Labels <br> Total Count: <span id="totalCount"></span> </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>READ_ONLY <br> Count:<span id="readOnlyCount"></span> </th>
+                <th>NOT_READ_ONLY <br> Count:<span id="notReadOnlyCount"></span> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul id="readOnlyList"></ul>
+                </td>
+                <td>
+                    <ul id="notReadOnlyList"></ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="./resources/script/script.js"></script>
+</body>
+</html>
