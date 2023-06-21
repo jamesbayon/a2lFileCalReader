@@ -1,78 +1,181 @@
-body {
-	font-family: Arial, sans-serif;
-	margin: 20px;
+body,
+html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-	text-align: center;
-}
-
-input[type="file"] {
-	display: none;
-}
-
-.custom-file-upload {
-	display: inline-block;
-	background-color: #4CAF50;
-	color: #fff;
-	border: none;
-	padding: 8px 16px;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-	border-radius: 4px;
-	transition: background-color 0.3s ease;
-}
-
-.custom-file-upload:hover {
-	background-color: #45a049;
-}
-
-.read-file-button {
-	background-color: #008CBA;
-	color: #fff;
-	border: none;
-	padding: 8px 16px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 14px;
-	cursor: pointer;
-	border-radius: 4px;
-	transition: background-color 0.3s ease;
-}
-
-.read-file-button:hover {
-	background-color: #006F9F;
+  text-align: center;
 }
 
 table {
-	border-collapse: collapse;
-	width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-th, td {
-	border: 1px solid #ddd;
-	padding: 8px;
-	text-align: left;
-	vertical-align: top;
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
 }
 
 th {
-	background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-ul li {
-	margin-bottom: 4px;
+/* CSS for tabs */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 200px;
+  float: left;
 }
 
-.selected-file-text {
-	margin-top: 10px;
-	font-weight: bold;
+/* Style for the tab links */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 14px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Style for the tab content container */
+.tab-content-container {
+  float: left;
+  //width: calc(100% - 200px); /* Adjust the width based on your preference */
+  width: 924px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* CSS for tab content */
+.tabcontent {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* CSS for collapsible contents */
+.collapsible {
+  background-color: #f1f1f1;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: 0.4s;
+}
+
+.activeCollapsible,
+.collapsible:hover {
+  background-color: #ddd;
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.activeCollapsible .collapsible-content {
+  max-height: 500px; /* Adjust the maximum height as needed */
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.read-file-button1,
+.read-file-button2,
+.save-file-button1,
+.save-file-button2 {
+  display: inline-block;
+  background-color: #008cba;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.read-file-button1:disabled,
+.read-file-button2:disabled,
+.save-file-button1:disabled,
+.save-file-button2:disabled {
+  background-color: gray;
+  color: white;
+  cursor: not-allowed;
+}
+
+.custom-file-upload:hover {
+  background-color: #45a049;
+}
+
+.selected-file-text1,
+.selected-file-text2 {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#errorContainer {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff3333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+#errorContainer.hide {
+  display: none;
 }

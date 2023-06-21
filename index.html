@@ -1,38 +1,102 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>A2L File Reader</title>
-	<link rel="stylesheet" href="./resources/css/styles.css">
+    <title>tool</title>
+    <link rel="stylesheet" href="./resources/css/styles.css">
 </head>
+
 <body>
-    <h1>A2L File Reader</h1>
-    <div>
-        <input type="file" id="fileInput" onchange="updateSelectedFileText()" />
-        <label for="fileInput" class="custom-file-upload">Choose File</label>
-        <button class="read-file-button" onclick="readFile()">Read File</button>
-        <div id="selectedFileText" class="selected-file-text"></div>
+
+    <!-- error section -->
+    <div id="errorContainer"></div>
+
+    <!-- Tab buttons -->
+    <div class="tab">
+        <h1>Tool List</h1>
+        <button class="tablinks" onclick="openTab(event, 'Tab1')" id="defaultOpen">a2l Cal Reader</button>
     </div>
 
-    <h2>Callibration Labels <br> Total Count: <span id="totalCount"></span> </h2>
-    <table>
-        <thead>
-            <tr>
-                <th>READ_ONLY <br> Count:<span id="readOnlyCount"></span> </th>
-                <th>NOT_READ_ONLY <br> Count:<span id="notReadOnlyCount"></span> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <ul id="readOnlyList"></ul>
-                </td>
-                <td>
-                    <ul id="notReadOnlyList"></ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Tab content -->
+    <div class="tab-content-container">
+        <div id="Tab1" class="tabcontent">
+            <h3>a2l Callibration Label Reader</h3>
+            <p>Read an a2l file and get both the read-only and not-read-only callibration labels.</p>
+
+            <!-- Collapsible content for Tab 1 -->
+            <button class="collapsible">Select File ( <span class="collapsible-icon">+</span> ) : <span
+                    id="selectedFileText1">n/a</span> </button>
+            <div class="collapsible-content">
+                <div>
+                    <br />
+                    <table>
+                        <tr>
+                            <th><label for="file">File:</label></th>
+                            <td><input type="file" id="fileInput1" accept=".a2l" onchange="updateSelectedFileText1()"
+                                    required>
+                                <label for="fileInput1" class="custom-file-upload">Choose File</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td><button id="readFileBtn" class="read-file-button1" onclick="readFile1()" disabled>Read
+                                    File</button></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+            <button class="collapsible">Read-Only Callibration Labels ( <span class="collapsible-icon">+</span> ) :
+                <span id="readOnlyCount1">0</span> </button>
+            <div class="collapsible-content">
+                <div>
+                    <br>
+                    <button id="readOnlySaveBtn" class="save-file-button1" onclick="writeROListToFile()" disabled>Save
+                        List</button>
+                    <br>
+                    <br>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul id="readOnlyList1">empty</ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+            </div>
+
+            <button class="collapsible">Not-Read-Only Callibration Labels ( <span class="collapsible-icon">+</span> ) :
+                <span id="notReadOnlyCount1">0</span> </button>
+            <div class="collapsible-content">
+                <div>
+                    <br>
+                    <button id="notReadOnlySaveBtn" class="save-file-button1" onclick="writeNROListToFile()"
+                        disabled>Save List</button>
+                    <br>
+                    <br>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul id="notReadOnlyList1">empty</ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
     <script src="./resources/script/script.js"></script>
+
 </body>
+
 </html>
